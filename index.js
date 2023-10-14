@@ -1,15 +1,17 @@
-import * as w from './websites.js'
+import express from 'express';
+import bodyParser from 'body-parser';
+// import cors from 'cors';
+import * as path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-// Quick test to see if scrapers work
-const main = async() => {
-    const [steam, epicGames, gamebillet] = await Promise.allSettled([w.scrapSteam("Elden Ring"), w.scrapEpicGames("Elder Scrolls"), w.scrapGamebillet("Elden Ring")])
-    
-    console.log(steam)
-    console.log(epicGames)
-    console.log(gamebillet)
-}
+import searchRouter from './routes/search.js';
 
-main()
-console.log("100% Legal Scraping has started 😎")
+const app = express()
 
+app.use(bodyParser.json({ limit: "30mb", extended: true }))
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
+// app.use(cors())
 
+app.use('/search', searchRouter)
+
+app.listen(8080, () => console.log("Listening on the CHADDY port of 8080 😎"))

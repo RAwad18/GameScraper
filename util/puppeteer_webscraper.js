@@ -4,7 +4,7 @@ import AdblockerPlugin from "puppeteer-extra-plugin-adblocker"
 
 // Reusable function for scraping - write once, use forever - or however it goes
 // This will return up to 5 results - and it returns the game's title, price, image, and link to actually buy it
-const webscraper = async (url, selectorAll, title, img, href, listPrice) => {
+const puppeteerScraper = async (url, selectorAll, title, img, href, listPrice) => {
 
     let results;
 
@@ -27,7 +27,7 @@ const webscraper = async (url, selectorAll, title, img, href, listPrice) => {
                 try {
                     name = game.querySelector(title).innerText
                     image = game.querySelector(img).src
-                    link = game.href || game.querySelector(href).href
+                    link = game.querySelector(href).href
                     price = game.querySelector(listPrice).innerText
                 } catch (error) {
                     // console.error(error)
@@ -43,8 +43,10 @@ const webscraper = async (url, selectorAll, title, img, href, listPrice) => {
     }
     finally {
         await browser.close();
+        // For debugging
+        console.log(results)
         return results;
     }
 }
 
-export default webscraper;
+export default puppeteerScraper;
