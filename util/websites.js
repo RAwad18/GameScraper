@@ -17,6 +17,10 @@ export const scrapGamebillet = async (game) => {
     // Calling scraper function
     const results = await cheerioScraper(url, selectorAll, title, img, href, listPrice)
 
+    results.map( ggGame => ggGame.link = `https://www.gamebillet.com/${ggGame.link}` )
+
+    // Debugging
+    // console.log(results)
     return results;
 }
 
@@ -56,6 +60,10 @@ export const scrapGamersGate = async (game) => {
     // Calling scraper function
     const results = await cheerioScraper(url, selectorAll, title, img, href, listPrice)
 
+    results.map( ggGame => ggGame.link = `https://www.gamersgate.com/${ggGame.link}` )
+
+    // Debugging
+    // console.log(results)
     return results;
 
 }
@@ -79,21 +87,22 @@ export const scrapSteam = async (game) => {
     return results;
 }
 
-export const scrapEpicGames = async (game) => {
+/* NO LONGER IN USE */
+// export const scrapEpicGames = async (game) => {
 
-    // Turning user input into valid url query
-    let query = game.replaceAll(" ", "%20")
-    const url = `https://store.epicgames.com/en-US/browse?q=${query}&sortBy=relevancy&sortDir=DESC&category=Game&count=40&start=0`
+//     // Turning user input into valid url query
+//     let query = game.replaceAll(" ", "%20")
+//     const url = `https://store.epicgames.com/en-US/browse?q=${query}&sortBy=relevancy&sortDir=DESC&category=Game&count=40&start=0`
 
-    // Variables for scrapping
-    const selectorAll = 'li.css-lrwy1y';
-    const title = 'div.css-rgqwpc';
-    const img = 'div.css-uwwqev img';
-    const href = 'a.css-g3jcms';
-    const listPrice = 'span.css-119zqif';
+//     // Variables for scrapping
+//     const selectorAll = 'li.css-lrwy1y';
+//     const title = 'div.css-rgqwpc';
+//     const img = 'div.css-uwwqev img';
+//     const href = 'a.css-g3jcms';
+//     const listPrice = 'span.css-119zqif';
 
-    // Calling scraper function
-    const results = await puppeteerScraper(url, selectorAll, title, img, href, listPrice)
+//     // Calling scraper function
+//     const results = await puppeteerScraper(url, selectorAll, title, img, href, listPrice)
 
-    return results;
-}
+//     return results;
+// }

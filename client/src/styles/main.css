@@ -1,0 +1,49 @@
+:root {
+  --clr-sky50: #f0f9ff;
+  --clr-sky950: #082f49;
+  --clr-slate800: #1e293b;
+}
+
+* {
+  margin: 0;
+  line-height: calc(1em + 0.5rem);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Open Sans', sans-serif;
+  min-width: 280px;
+  color: var(--clr-sky50);
+  background: rgb(30, 41, 59);
+  background: linear-gradient(180deg, rgba(30, 41, 59, 1) 0%, rgba(8, 47, 73, 1) 35%, rgba(30, 41, 59, 1) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.img,
+picture,
+video,
+canvas,
+img {
+  display: block;
+  max-width: 100%;
+  user-select: none;
+}
+
+button {
+  display: inline-block;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+button:hover {}
+
+button:active {
+  transform: translateY(2px);
+}

@@ -18,8 +18,8 @@ const puppeteerScraper = async (url, selectorAll, title, img, href, listPrice) =
 
     try {
         const page = await browser.newPage()
-        await page.goto(url)
-        await page.waitForSelector(selectorAll);
+        await page.goto(url, {waitForSelector: selectorAll, timeout: 10000})
+        // await page.waitForSelector(selectorAll);
 
         results = await page.evaluate((selectorAll, title, img, href, listPrice) => {
             const videoGames = Array.from(document.querySelectorAll(selectorAll)).slice(0, 5).map(game => {

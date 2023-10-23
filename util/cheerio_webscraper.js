@@ -21,7 +21,7 @@ const cheerioScraper = async (url, selectorAll, title, img, href, listPrice) => 
         })
 
         // debugging purposes
-        console.log(listOfGames)
+        // console.log(listOfGames)
 
         return listOfGames;
 
