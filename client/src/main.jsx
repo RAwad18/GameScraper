@@ -11,6 +11,8 @@ import ResultsPage, {loader as resultsLoader, action as resultsAction} from './c
 // Styles
 import './styles/modern-normalize.css'
 import './styles/main.css'
+import './styles/search-page.css'
+import './styles/results-page.css'
 
 // Sets up the 'routes' for the website
 // Two main routes - Search Page and Results Page

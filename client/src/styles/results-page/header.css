@@ -1,0 +1,76 @@
+.header-container {
+    display: flex;
+    gap: 1rem;
+    /* justify-content: center; */
+    align-items: center;
+    flex-grow: 1;
+}
+
+.header img, .header button {
+    width: clamp(0.75rem, 1em, 1.3rem);
+    height: auto;
+}
+
+
+.header-logo {
+    font-size: max(1rem, 1.3em);
+    flex-grow: 3;
+}
+
+.header-logo .header-logo-game {
+    font-weight: 500;
+}
+
+.header-logo .header-logo-scraper {
+    font-weight: 600;
+    color: var(--clr-sky300);
+}
+
+
+
+
+
+.search-section-wrapper {
+    /* margin-left: auto; */
+    flex-grow: 1;
+}
+
+.search-section {
+    display: flex;
+    border-radius: 1em;
+    background-color: var(--clr-slate900);
+    padding: 0.1rem 0.5rem;
+    font-size: 1.3rem;
+}
+
+.search-icon {
+    margin-right: min(0.5rem, 0.5em);
+}
+
+.search-bar {
+    all: unset;
+    color: inherit;
+    background-color: inherit;
+    width: 100%;
+    padding-right: 0.5rem;
+
+    font-size: clamp(0.75rem, 1em, 1rem);
+    /* font-size: 0.5rem; */
+}
+
+.search-bar::placeholder {
+    /* font-size: 1em; */
+    color: var(--clr-slate500);
+}
+
+
+
+
+.hidden {
+    display: none;
+}
+
+.hidden-but-present {
+    visibility: hidden;
+    /* display: none; */
+}

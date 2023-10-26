@@ -1,7 +1,12 @@
+@import './footer.css';
+
 :root {
   --clr-sky50: #f0f9ff;
+  --clr-sky300: #7dd3fc;
   --clr-sky950: #082f49;
-  --clr-slate800: #1e293b;
+  --clr-slate300: #cbd5e1;
+  --clr-slate500: #64748b;
+  --clr-slate900: #0f172a;
 }
 
 * {
@@ -17,8 +22,7 @@ body {
   font-family: 'Segoe UI', 'Roboto', 'Open Sans', sans-serif;
   min-width: 280px;
   color: var(--clr-sky50);
-  background: rgb(30, 41, 59);
-  background: linear-gradient(180deg, rgba(30, 41, 59, 1) 0%, rgba(8, 47, 73, 1) 35%, rgba(30, 41, 59, 1) 100%);
+  background: var(--clr-slate900);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -45,5 +49,26 @@ button {
 button:hover {}
 
 button:active {
-  transform: translateY(2px);
+  transform: scale(0.8);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; 
+}
+
+a, .link {
+  all: unset;
+  cursor: pointer;
+}
+
+
+
+/* Media Queries */
+@media (min-width: 1280px) {
+  .container {
+      max-width: 1280px;
+  }
 }

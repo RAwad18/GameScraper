@@ -1,10 +1,19 @@
+/* IMPORTS */
 // Dependencies
 import { useEffect, useState } from "react"
-import { useLoaderData, Form, redirect } from "react-router-dom"
+import { useLoaderData, redirect } from "react-router-dom"
 import { getGames } from "../api/api"
 
 // Components
 import { GameBillet, GamersGate, Steam, WinGameStore } from "./results-page/website-sections"
+import ResultsPageHeader from "../components/results-page/header"
+import Footer from "./footer" 
+
+
+
+
+
+/* CODE */
 
 // This function is called everytime a 'submit' is done within react-router-dom's <Form> element
 // Basically everytime the user submits something to search
@@ -15,6 +24,10 @@ export async function action({ request, params }) {
     return redirect(`/search?q=${query}`)
 }
 
+
+
+
+
 // This function is called by react-router-dom before it renders the <ResultsPage> component
 // This will block anything from happening, that's why I kept the code in here to a minimum.
 // All this does is return the search query, which can then be accessed in our <ResultsPage> component via 'useLoaderData()'
@@ -23,6 +36,11 @@ export async function loader({ request }) {
     const query = url.searchParams.get("q")
     return query
 }
+
+
+
+
+
 
 // This function is called everytime the "query" changes
 // It's job is to make a call to the backend and retrieve the data we want
@@ -45,6 +63,10 @@ async function getData(query, state, setStateFn) {
         results: data
     })
 }
+
+
+
+
 
 // BIG BOY COMPONENT
 const ResultsPage = () => {
@@ -72,19 +94,16 @@ const ResultsPage = () => {
 
     return (
         <>
-            <header>
-                <Form method="post">
-                    <input type="text" name="query" />
-                    <button type="submit">Submit</button>
-                </Form>
+            <header className="header results-page-header">
+                <ResultsPageHeader />
             </header>
-            <main>
+            <main className="results-section">
                 <Steam state={state} />
                 <GameBillet state={state} />
                 <WinGameStore state={state} />
                 <GamersGate state={state} />
             </main>
-
+            <Footer />
         </>
     )
 }

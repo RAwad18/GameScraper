@@ -1,0 +1,43 @@
+.footer {
+    padding: 1rem;
+    padding-top: 0.5rem;
+    background-color: var(--clr-sky950);
+    color: var(--clr-slate300);
+
+    font-weight: 300;
+    font-size: 0.75rem;
+    font-family: 'Oswald', 'Open Sans', sans-serif;
+    letter-spacing: 0.05rem;
+}
+
+.footer-container {
+    border-top: solid 1px var(--clr-slate300);
+    padding-top: 0.5rem;
+}
+
+.footer-line-break {
+    background-color: red;
+}
+
+.footer-links {
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    /* align-items: center; */
+    /* gap: auto; */
+}
+
+.footer-links li,
+.footer-links li img {
+    display: inline;
+    /* flex-grow: 1; */
+}
+
+.footer-links li a, .footer-name {
+    display: flex;
+    gap: 0.3rem;
+}
+
+.footer-icons {
+    width: 1em;
+}

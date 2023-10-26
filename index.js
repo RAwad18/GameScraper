@@ -8,10 +8,12 @@ import searchRouter from './routes/search.js';
 
 const app = express()
 
+// Middleware - explain later!
 app.use(bodyParser.json({ limit: "30mb", extended: true }))
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 app.use(cors())
 
+// For 
 app.use('/search', searchRouter)
 
 app.listen(8080, () => console.log("Listening on the CHADDY port of 8080 😎"))
