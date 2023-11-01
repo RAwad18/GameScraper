@@ -6,11 +6,15 @@
 
     font-weight: 300;
     font-size: 0.75rem;
-    font-family: 'Oswald', 'Open Sans', sans-serif;
+    /* font-family: 'Oswald', 'Open Sans', sans-serif; */
     letter-spacing: 0.05rem;
+
+    display: flex;
+    justify-content: center;
 }
 
 .footer-container {
+    flex-grow: 1;
     border-top: solid 1px var(--clr-slate300);
     padding-top: 0.5rem;
 }

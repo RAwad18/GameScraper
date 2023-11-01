@@ -7,7 +7,7 @@ import { getGames } from "../api/api"
 // Components
 import { GameBillet, GamersGate, Steam, WinGameStore } from "./results-page/website-sections"
 import ResultsPageHeader from "../components/results-page/header"
-import Footer from "./footer" 
+import Footer from "./footer"
 
 
 
@@ -57,7 +57,106 @@ async function getData(query, state, setStateFn) {
     }
 
     // Once data is retrieved from the server, set the data as the results and confirm that the request is finished
-    const { data } = await getGames(query);
+    // let gamesPayload;
+    // try {
+    //     const { data } = await getGames(query);
+    //     gamesPayload = data;
+    // } catch (error) {
+    //     console.error(error)
+    //     gamesPayload = {
+    //         steam: [],
+    //         gamebillet: [],
+    //         wingamestore: [],
+    //         gamersgate: []
+    //     }
+    // }
+    // finally {
+    //     setStateFn({
+    //         isLoading: false,
+    //         results: gamesPayload
+    //     })
+    // }
+
+
+    // For Testing
+    const data = {
+        steam: [
+            {
+                title: 'ELDEN RING',
+                price: '$59.99',
+                image: 'https://cdn.akamai.steamstatic.com/steam/apps/1245620/capsule_sm_120.jpg?t=1683618443',
+                link: 'https://store.steampowered.com/app/1245620/ELDEN_RING/?snr=1_7_7_151_150_1'
+            },
+            {
+                title: 'ARMORED CORE™ VI FIRES OF RUBICON™',
+                price: '$59.99',
+                image: 'https://cdn.akamai.steamstatic.com/steam/apps/1888160/capsule_sm_120.jpg?t=1696573287',
+                link: 'https://store.steampowered.com/app/1888160/ARMORED_CORE_VI_FIRES_OF_RUBICON/?snr=1_7_7_151_150_1'
+            },
+            {
+                title: 'DARK SOULS™ III',
+                price: '$59.99',
+                image: 'https://cdn.akamai.steamstatic.com/steam/apps/374320/capsule_sm_120.jpg?t=1682651227',
+                link: 'https://store.steampowered.com/app/374320/DARK_SOULS_III/?snr=1_7_7_151_150_1'
+            },
+            {
+                title: 'Perfect New World',
+                price: 'Free',
+                image: 'https://cdn.akamai.steamstatic.com/steam/apps/2359600/capsule_sm_120.jpg?t=1698377718',
+                link: 'https://store.steampowered.com/app/2359600/Perfect_New_World/?snr=1_7_7_151_150_1'
+            },
+            {
+                title: 'Voidborn',
+                price: '$12.99',
+                image: 'https://cdn.akamai.steamstatic.com/steam/apps/2072660/capsule_sm_120.jpg?t=1692399254',
+                link: 'https://store.steampowered.com/app/2072660/Voidborn/?snr=1_7_7_151_150_1'
+            }
+        ],
+        gamebillet: [
+            {
+                title: 'Elden Ring',
+                price: '$52.67',
+                image: 'https://s3-eu-west-1.amazonaws.com/gb.awsbucket.1/0121162_0.jpeg',
+                link: 'https://www.gamebillet.com/elden-ring'
+            },
+            {
+                title: 'Elden Ring Deluxe Edition',
+                price: '$65.95',
+                image: 'https://s3-eu-west-1.amazonaws.com/gb.awsbucket.1/0121159_0.jpeg',
+                link: 'https://www.gamebillet.com/elden-ring-deluxe-edition'
+            }
+        ],
+        wingamestore: [
+            {
+                title: 'ELDEN RING',
+                price: '$54.99',
+                image: 'https://www.wingamestore.com/images_boxshots/240x135/elden-ring-1636044327.png',
+                link: 'https://www.wingamestore.com/product/13045/ELDEN-RING/'
+            },
+            {
+                title: 'ELDEN RING Deluxe Edition',
+                price: '$73.99',
+                image: 'https://www.wingamestore.com/images_boxshots/240x135/elden-ring-deluxe-edition-1636051659.png',
+                link: 'https://www.wingamestore.com/product/13046/ELDEN-RING-Deluxe-Edition/'
+            }
+        ],
+        gamersgate: [
+            {
+                title: 'ELDEN RING',
+                price: '$59.99',
+                image: 'https://gamersgatep.imgix.net/d/1/2/e13ee5295fdfc5167d47d7da2b1f53138555521d.jpg?auto=format&w=310',
+                link: 'https://www.gamersgate.com/product/elden-ring/'
+            },
+            {
+                title: 'ELDEN RING Deluxe Edition',
+                price: '$79.99',
+                image: 'https://gamersgatep.imgix.net/d/d/6/af515ad153129a714a860b13071560e6b41216dd.jpg?auto=format&w=310',
+                link: 'https://www.gamersgate.com/product/elden-ring-deluxe-edition/'
+            }
+        ]
+    }
+
+
     setStateFn({
         isLoading: false,
         results: data
@@ -97,11 +196,13 @@ const ResultsPage = () => {
             <header className="header results-page-header">
                 <ResultsPageHeader />
             </header>
-            <main className="results-section">
-                <Steam state={state} />
-                <GameBillet state={state} />
-                <WinGameStore state={state} />
-                <GamersGate state={state} />
+            <main className="results-container">
+                <div className="results container">
+                    <Steam state={state} />
+                    <GameBillet state={state} />
+                    <WinGameStore state={state} />
+                    <GamersGate state={state} />
+                </div>
             </main>
             <Footer />
         </>

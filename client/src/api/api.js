@@ -3,4 +3,9 @@ import axios from 'axios'
 
 const url = "http://localhost:8080/search/"
 
-export const getGames = (query) => axios.get(url, {params: {q: query}})
+const instance = axios.create({
+    baseURL: "http://localhost:8080/search",
+    timeout: 10000,
+})
+
+export const getGames = (query) => instance.get('/', {params: {q: query}})

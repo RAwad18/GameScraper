@@ -3,10 +3,12 @@
 :root {
   --clr-sky50: #f0f9ff;
   --clr-sky300: #7dd3fc;
+  --clr-sky500: #0ea5e9;
   --clr-sky950: #082f49;
   --clr-slate300: #cbd5e1;
   --clr-slate500: #64748b;
   --clr-slate900: #0f172a;
+  --clr-slate950: #020617;
 }
 
 * {
@@ -20,9 +22,11 @@ html {
 
 body {
   font-family: 'Segoe UI', 'Roboto', 'Open Sans', sans-serif;
+  font-family: 'Oswald', 'Open Sans', sans-serif;
   min-width: 280px;
   color: var(--clr-sky50);
   background: var(--clr-slate900);
+  /* background-color: var(--clr-slate950); */
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
@@ -71,4 +75,8 @@ a, .link {
   .container {
       max-width: 1280px;
   }
+
+  .results-section > * {
+    max-width: 1280px;
+  } 
 }

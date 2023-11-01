@@ -30,7 +30,7 @@ const Header = () => {
                 <div className="search-section">
                     <img src="/search-icon.svg" alt="search icon" className="search-icon" />
 
-                    <input autoComplete="off" type="text" name="query" className="search-bar" placeholder="Search" onChange={(e) => toggleXIcon(e, setShowXIcon)} onFocus={() => { toggleSearchUnderline(setShowSearchUnderline, true) }} onBlur={() => { toggleSearchUnderline(setShowSearchUnderline, false) }} />
+                    <input autoComplete="off" type="text" name="query" className="search-bar" placeholder="Search" onChange={(e) => toggleXIcon(e, setShowXIcon)} />
 
 
                     <button type="reset" className={`search-clear ${!showXIcon ? 'hidden-but-present' : ''}`}

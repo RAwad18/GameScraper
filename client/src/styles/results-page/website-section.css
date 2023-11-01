@@ -1,0 +1,50 @@
+.website-section {
+    background-color: var(--clr-slate950);
+    padding: 0.5rem 0;
+    padding-top: 0.35rem;
+    border-radius: 0.75rem;
+}
+
+h3.website-title {
+    /* border-bottom: solid 1px var(--clr-slate500); */
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.website-games {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    /* gap: 1rem; */
+}
+
+.game-container {
+    /* padding: 1rem 0.5rem; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.game-container:hover {
+    color: var(--clr-sky950);
+    background-color: var(--clr-sky500);
+}
+
+.game-image {
+    /* inline-size: 100%; */
+    /* aspect-ratio: 16 / 9; */
+    width: 100px;
+    /* height: 45px; */
+    /* object-fit: cover; */
+}
+
+.game-title {
+    flex-grow: 1;
+}
+
+.game-price {
+    font-size: 0.85em;
+}

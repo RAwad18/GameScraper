@@ -1,19 +1,28 @@
 @import './results-page/header.css';
+@import './results-page/website-section.css';
 
 .header {
-    padding: 1rem;
     background-color: var(--clr-sky950);
-    font-family: 'Oswald', 'Open Sans', sans-serif;
+    /* font-family: 'Oswald', 'Open Sans', sans-serif; */
 
     display: flex;
     justify-content: center;
 }
 
 .results-page-header {
-    font-size: clamp(0.75rem, 3.5vw, 2rem);
+    /* font-size: clamp(0.75rem, 3.5vw, 2rem); */
 }
 
-.results-section {
+.results-container {
     /* padding-bottom: auto; */
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.results {
+    gap: 0.5rem;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
 }

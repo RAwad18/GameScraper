@@ -17,7 +17,7 @@ export const scrapGamebillet = async (game) => {
     // Calling scraper function
     const results = await cheerioScraper(url, selectorAll, title, img, href, listPrice)
 
-    results.map( ggGame => ggGame.link = `https://www.gamebillet.com/${ggGame.link}` )
+    results.map(ggGame => ggGame.link = `https://www.gamebillet.com${ggGame.link}`)
 
     // Debugging
     // console.log(results)
@@ -40,6 +40,8 @@ export const scrapWinGameStore = async (game) => {
     // Calling scraper function
     const results = await cheerioScraper(url, selectorAll, title, img, href, listPrice)
 
+    results.map(ggGame => ggGame.image = `https://www.wingamestore.com${ggGame.image}`)
+
     return results;
 
 }
@@ -60,7 +62,10 @@ export const scrapGamersGate = async (game) => {
     // Calling scraper function
     const results = await cheerioScraper(url, selectorAll, title, img, href, listPrice)
 
-    results.map( ggGame => ggGame.link = `https://www.gamersgate.com/${ggGame.link}` )
+    results.map(ggGame => {
+        ggGame.price = ggGame.price.replace(/ /g, "")
+        ggGame.link = `https://www.gamersgate.com${ggGame.link}`
+    })
 
     // Debugging
     // console.log(results)
