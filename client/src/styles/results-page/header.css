@@ -5,18 +5,27 @@
     /* justify-content: center; */
     align-items: center;
     flex-grow: 1;
+    font-size: 1rem;
 }
 
-.header img, .header button {
+.header img,
+.header button {
     width: 1em;
-    width: 0.75em;
+    /* width: 0.75em; */
+    height: auto;
+}
+
+.header button {
+    width: 1.25em;
+    /* width: 0.75em; */
     height: auto;
 }
 
 
+
 .header-logo {
-    font-size: 1.3em;
-    flex-grow: 3;
+    font-size: 1.35rem;
+    flex-grow: 5;
 }
 
 .header-logo .header-logo-game {
@@ -39,6 +48,8 @@
 
 .search-section {
     display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
     border-radius: 1em;
     background-color: var(--clr-slate900);
     padding: 0 0.5rem;
@@ -46,7 +57,7 @@
 }
 
 .search-icon {
-    margin-right: min(0.5rem, 0.5em);
+    margin-right: 0.5rem;
 }
 
 .search-bar {
@@ -55,17 +66,13 @@
     background-color: inherit;
     width: 100%;
     padding-right: 0.5rem;
-
-    font-size: clamp(0.75rem, 1em, 1rem);
-    /* font-size: 0.5rem; */
+    font-size: 0.8em;
 }
 
 .search-bar::placeholder {
     /* font-size: 1em; */
     color: var(--clr-slate500);
 }
-
-
 
 
 .hidden {
@@ -75,4 +82,31 @@
 .hidden-but-present {
     visibility: hidden;
     /* display: none; */
+}
+
+
+@media (min-width: 500px) {
+    .header-logo {
+        font-size: 1.5rem;
+    }
+
+    .search-bar {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 768px) {
+    .header-logo {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .header-logo {
+        font-size: 2.5rem;
+    }
+
+    .search-section {
+        font-size: 1.1rem;
+    }
 }

@@ -4,7 +4,7 @@ function GameMapper(state, website) {
 
         <div className="website-games">
             {state.results[website].map((game, i) => (
-                <a href={game.link} key={`game${i}`} className="game-container">
+                <a href={game.link} target="_blank" key={`game${i}`} className="game-container">
                     <img className="game-image" src={game.image} alt="PIC NO WORKY" />
 
                     <span className="game-title">

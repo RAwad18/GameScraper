@@ -3,9 +3,11 @@
     padding: 0.5rem 0;
     padding-top: 0.35rem;
     border-radius: 0.75rem;
+
+    font-size: 1rem;
 }
 
-h3.website-title {
+.website-title {
     /* border-bottom: solid 1px var(--clr-slate500); */
     padding-left: 0.5rem;
     padding-bottom: 0.5rem;
@@ -26,6 +28,8 @@ h3.website-title {
     align-items: center;
     gap: 0.75rem;
     padding: 0.25rem 0.5rem;
+
+    /* transition: all 0.25s; */
 }
 
 .game-container:hover {
@@ -47,4 +51,15 @@ h3.website-title {
 
 .game-price {
     font-size: 0.85em;
+}
+
+
+@media (min-width: 768px) {
+    .website-section {
+        font-size: 1.1rem;
+    }
+
+    .game-price {
+        font-size: 1em;
+    }
 }
