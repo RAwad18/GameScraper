@@ -1,3 +1,14 @@
+import LoadingComponent from "./loading"
+
+// Function that loads "No Results"
+function NoResults() {
+    return (
+        <div className="no-results">
+            <i>No Results</i>
+        </div>
+    )
+}
+
 // Function that loads the data from payload we recieved
 function GameMapper(state, website) {
     return (
@@ -12,7 +23,9 @@ function GameMapper(state, website) {
                     </span>
 
                     <span className="game-price">
-                        {game.price}
+                        {game.price || <div className="no-price">
+                            -
+                        </div>}
                     </span>
 
                 </a>
@@ -33,9 +46,9 @@ export const Steam = ({ state }) => {
         <section className="website-section steam">
             <h3 className="website-title">Steam</h3>
             {state.isLoading
-                ? (<i>Loading...</i>)
+                ? (<LoadingComponent />)
                 : state.results.steam.length === 0
-                    ? (<i>No Results</i>)
+                    ? (NoResults())
                     : (
                         GameMapper(state, 'steam')
                     )}
@@ -48,9 +61,9 @@ export const GameBillet = ({ state }) => {
         <section className="website-section gamebillet">
             <h3 className="website-title">Gamebillet</h3>
             {state.isLoading
-                ? (<i>Loading...</i>)
+                ? (<LoadingComponent />)
                 : state.results.gamebillet.length === 0
-                    ? (<i>No Results</i>)
+                    ? (NoResults())
                     : (
                         GameMapper(state, 'gamebillet')
                     )}
@@ -63,9 +76,9 @@ export const WinGameStore = ({ state }) => {
         <section className="website-section wingamestore">
             <h3 className="website-title">Wingamestore</h3>
             {state.isLoading
-                ? (<i>Loading...</i>)
+                ? (<LoadingComponent />)
                 : state.results.wingamestore.length === 0
-                    ? (<i>No Results</i>)
+                    ? (NoResults())
                     : (
                         GameMapper(state, 'wingamestore')
                     )}
@@ -78,9 +91,9 @@ export const GamersGate = ({ state }) => {
         <section className="website-section gamersgate">
             <h3 className="website-title">Gamersgate</h3>
             {state.isLoading
-                ? (<i>Loading...</i>)
+                ? (<LoadingComponent />)
                 : state.results.gamersgate.length === 0
-                    ? (<i>No Results</i>)
+                    ? (NoResults())
                     : (
                         GameMapper(state, 'gamersgate')
                     )}

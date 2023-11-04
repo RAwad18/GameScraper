@@ -1,0 +1,44 @@
+.error-page {
+    padding: 1rem;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 2rem; */
+}
+
+.error-page img {
+    width: 250px;
+    margin-top: calc(-1 * 100px);
+    margin-bottom: calc(-1 * 25px);
+}
+
+.error-status {
+    font-size: 100px;
+}
+
+.error-status-text {
+    font-size: 40px;
+}
+
+
+.debug-error {
+    font-size: 50px;
+}
+
+.error-message {
+    margin-top: 8px;
+    font-size: 35px;
+}
+
+
+.return-btn {
+    margin-top: 50px;
+    font-size: 24px;
+}
+
+.return-btn:hover {
+    color: var(--clr-sky500);
+}

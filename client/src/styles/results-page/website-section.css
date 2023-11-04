@@ -5,6 +5,7 @@
     border-radius: 0.75rem;
 
     font-size: 1rem;
+    /* border: solid 1px var(--clr-sky50); */
 }
 
 .website-title {
@@ -51,7 +52,24 @@
 
 .game-price {
     font-size: 0.85em;
+    align-self: center;
 }
+
+
+.no-results {
+    margin-top: calc(-1 * 0.25rem);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.no-price {
+    width: 45px;
+    text-align: center;
+    font-size: 1.5em;
+}
+
 
 
 @media (min-width: 768px) {

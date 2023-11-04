@@ -1,0 +1,24 @@
+.error-message-container {
+    padding: 0.1rem;
+    padding-left: 0.5rem;
+    background-color: var(--clr-red200);
+    border-radius: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.error-message-code {
+    color: var(--clr-red600);
+    font-weight: 500;
+}
+
+.error-message-message {
+    color: var(--clr-slate900);
+    font-size: 0.9em;
+}
+
+.hide-message {
+    display: none;
+}

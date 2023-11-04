@@ -1,4 +1,6 @@
 @import './results-page/header.css';
+@import './results-page/error-message.css';
+@import './results-page/loading.css';
 @import './results-page/website-section.css';
 
 .header {
@@ -21,8 +23,14 @@
 }
 
 .results {
-    gap: 0.5rem;
+    gap: 1rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+}
+
+@media (min-width: 1024px) {
+    .results {
+        max-width: 1024px;
+    }
 }
