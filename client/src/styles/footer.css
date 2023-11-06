@@ -1,8 +1,6 @@
 .footer {
     padding: 1rem;
     padding-top: 0.5rem;
-    background-color: var(--clr-sky950);
-    color: var(--clr-slate300);
 
     font-weight: 300;
     font-size: 0.75rem;
@@ -11,6 +9,17 @@
 
     display: flex;
     justify-content: center;
+    
+}
+
+.footer-search-page {
+    /* background-color: var(--clr-sky950); */
+    color: var(--clr-slate300);
+}
+
+.footer-results-page {
+    /* background-color: var(--clr-sky950); */
+    color: var(--clr-slate300);
 }
 
 .footer-container {

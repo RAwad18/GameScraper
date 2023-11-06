@@ -1,0 +1,127 @@
+.search-page-content {
+    flex-grow: 1;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    align-self: center;
+}
+
+.search-page-header {
+    font-size: 15vw;
+}
+
+.search-page-search-section span {
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--clr-slate950);
+}
+
+.search-page-header .header-logo-game {
+    font-weight: 500;
+    /* color: var(--clr-slate300); */
+}
+
+.search-page-header .header-logo-scraper {
+    font-weight: 600;
+    color: var(--clr-sky300);
+}
+
+
+
+.search-page-search-section {
+    display: flex;
+    background-color: var(--clr-sky50);
+    color: var(--clr-slate950);
+
+    width: 80vw;
+    padding: 0.25rem 0.5rem;
+
+    border-radius: 1rem;
+    border: solid 1px var(--clr-sky950);
+}
+
+.search-page-search-section .search-bar {
+    all: unset;
+    font-size: 1em;
+    flex-grow: 1;
+}
+
+
+.search-page-search-section .search-icon {
+    width: 1em;
+}
+
+.search-page-search-section .search-clear {
+    width: 1.1em;
+}
+
+.search-page-search-section .search-button {
+    width: 1.25em;
+    margin-left: 0.25rem;
+}
+
+
+
+/* Animation */
+.search-page {
+    background: linear-gradient(-45deg, #0c4a6e, #0369a1, #0284c7, #0ea5e9);
+
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+
+
+
+/* Media Queries */
+@media (min-width: 512px) {
+    .search-page-header {
+        font-size: 4.75rem;
+    }
+
+    .search-page-search-section {
+        width: 409px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .search-page-header {
+        font-size: 6rem;
+    }
+
+    .search-page-search-section {
+        width: 500px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .search-page-header {
+        font-size: 6.5rem;
+    }
+
+    .search-page-search-section {
+        width: 535px;
+        font-size: 1.2rem;
+    }
+}

@@ -61,7 +61,7 @@
     padding: 0.5rem;
     display: flex;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 .no-price {
@@ -79,5 +79,9 @@
 
     .game-price {
         font-size: 1em;
+    }
+
+    .no-results {
+        font-size: 1.5rem;
     }
 }

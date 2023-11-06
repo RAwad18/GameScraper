@@ -208,7 +208,7 @@ const ResultsPage = () => {
     return (
         <>
             <header className="header results-page-header">
-                <ResultsPageHeader />
+                <ResultsPageHeader query={query} />
             </header>
             <main className="results-container">
                 <div className="results">
@@ -222,7 +222,9 @@ const ResultsPage = () => {
                     <GamersGate state={state} />
                 </div>
             </main>
-            <Footer />
+            <footer className="footer footer-results-page">
+                <Footer />
+            </footer>
         </>
     )
 }

@@ -3,18 +3,23 @@ import { Form, Link } from "react-router-dom"
 
 
 // Changes state to show the 'clear' button icon - only if there's something within the search bar 
-function toggleXIcon(event, setStateFn) {
-    if (event.target.value === "")
-        setStateFn(false)
+function xIconHandler(query) {
+    if (query === "")
+        setXIcon(false)
     else
-        setStateFn(true)
+        setXIcon(true)
 }
 
 
-const Header = () => {
+
+
+const Header = ({ query }) => {
 
     // Component State that will either show or hide the .search-clear class
-    const [showXIcon, setShowXIcon] = useState(false)
+
+    const [searchQuery, setSearchQuery] = useState(query)
+
+    const [showXIcon, setShowXIcon] = useState(searchQuery === "" ? false : true)
 
 
 
@@ -30,15 +35,21 @@ const Header = () => {
                 <div className="search-section">
                     <img src="/search-icon.svg" alt="search icon" className="search-icon" />
 
-                    <input autoComplete="off" type="text" name="query" className="search-bar" placeholder="Search" onChange={(e) => toggleXIcon(e, setShowXIcon)} />
+                    <input autoComplete="off" type="text" name="query" className="search-bar" placeholder="Search"
+                        value={searchQuery} onChange={(e) => {
+                            setSearchQuery(e.target.value);
+                            xIconHandler(searchQuery)
+                        }} />
 
 
                     <button type="reset" className={`search-clear ${!showXIcon ? 'hidden-but-present' : ''}`}
-                        onClick={() => { setShowXIcon(false); }}>
+                        onClick={() => { setShowXIcon(false); setSearchQuery(""); }}>
                         <img src="/x-icon.svg" alt="clear search button" />
                     </button>
 
-
+                    <button type="submit" className="search-submit">
+                        <img src="/search-icon.svg" alt="search icon" />
+                    </button>
 
                 </div>
             </Form>
