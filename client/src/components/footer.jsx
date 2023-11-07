@@ -7,7 +7,7 @@ const Footer = () => {
                     <span className="footer-name">
                         <img className="footer-icons" src="/person-icon.svg" alt="Person Icon" />
                         <span>
-                            First Lastname
+                            Rashed Awadallah
                         </span>
                     </span>
                 </li>
@@ -16,7 +16,7 @@ const Footer = () => {
                         target="_blank" href="mailto:someone@example.com">
                         <img className="footer-icons email-icon" src="/email-icon.svg" alt="Email Icon" />
                         <span>
-                            Email Address
+                            awadallah.rashed01@gmail.com
                         </span>
                     </a>
                 </li>
