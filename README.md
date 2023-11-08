@@ -37,9 +37,9 @@ The biggest issue I ran into was the inability to scrape websites **efficiently*
 - The client from the perspective of these websites, would be the GameScraper server.
 - Every request that GameScraper receives would equal a request sent to the websites that I scrape.
 - Meaning that, if 20 different clients query GameScraper in a second, all the websites would see is 20 GET requests from the same IP (the GameScraper server).
-- This would result in throttling, or worse, a ban of some kind (which *kind of* hurts the whole premise of this project)
+- This would result in throttling, or worse, a ban of some kind
 
-To get around this issue, I would need 'premium web proxies' that the GameScraper server would send its requests through. That costs money, which I don't have but even if I did, I wouldn't spend it on a personal project of this scale.
+To get around this issue, I would need 'premium web proxies' that the GameScraper server would send its requests through. That costs money - which I don't have - but even if I did, I wouldn't spend it on a personal project of this scale.
 
 Building my own proxy with rotating IP addresses would be the alternative, however, that exceeds the scope of this project - at least for right now 😲.
 
@@ -48,4 +48,10 @@ One website that I really wanted to include was Epic Games. The only issue was t
 
 Instead, I needed to use a headless browser such as Puppeteer to scrape it. As it turns out, headless browsers are much slower than Cheerio scraping, and they aren't typically used for scraping in the manner that I do it.
 
-Typically, people would scrape on an interval (like every day, or every 15 minutes). In that case, the few extra seconds that it takes to use Puppeteer becomes inconsequential.
+Typically, people would scrape on an interval (like every day, or every 15 minutes). In that case, the few extra seconds that it takes to use Puppeteer becomes inconsequential. However, when scraping "on-demand", those few seconds do become *kind of a drag*.
+
+## Possible Improvements
+Adding more websites (the ones that require Puppeteer to scrape)
+-  There's no way that I can avoid the few extra seconds it takes for a headless browser to load a page before scraping it...
+-  However, I could make *two* different requests on my 'results page' - one for websites that I can scrape using Fetch and Cheerio, and the other for websites that require Puppeteer.
+-  That way, some of the data can at least be presented to the user 'right away' (the Fetch/Cheerio combo) while the other data is still being retrieved.
