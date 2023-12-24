@@ -1,11 +1,12 @@
 .loader-container {
     /* background-color: red; */
-    padding-left: 0.5rem;
+    /* padding-left: 0.5rem; */
+    align-self: center;
 }
 
 .loader {
-    width: 42px;
-    height: 42px;
+    width: 60px;
+    height: 60px;
     border: 4px solid var(--clr-sky50);
     border-bottom-color: transparent;
     border-radius: 50%;

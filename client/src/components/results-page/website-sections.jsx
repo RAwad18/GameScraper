@@ -44,7 +44,13 @@ function GameMapper(state, website) {
 export const Steam = ({ state }) => {
     return (
         <section className="website-section steam">
-            <h3 className="website-title">Steam</h3>
+            <h3 className="website-title">
+                {state.searchUrls.steam === '' ? "Steam"
+                    : <a href={state.searchUrls.steam} target="_blank">
+                        Steam
+                    </a>
+                }
+            </h3>
             {state.isLoading
                 ? (<LoadingComponent />)
                 : state.results.steam.length === 0
@@ -59,7 +65,13 @@ export const Steam = ({ state }) => {
 export const GameBillet = ({ state }) => {
     return (
         <section className="website-section gamebillet">
-            <h3 className="website-title">Gamebillet</h3>
+            <h3 className="website-title">
+                {state.searchUrls.gamebillet === '' ? "GameBillet"
+                    : <a href={state.searchUrls.gamebillet} target="_blank">
+                        GameBillet
+                    </a>
+                }
+            </h3>
             {state.isLoading
                 ? (<LoadingComponent />)
                 : state.results.gamebillet.length === 0
@@ -74,7 +86,13 @@ export const GameBillet = ({ state }) => {
 export const WinGameStore = ({ state }) => {
     return (
         <section className="website-section wingamestore">
-            <h3 className="website-title">Wingamestore</h3>
+            <h3 className="website-title">
+                {state.searchUrls.wingamestore === '' ? "WinGameStore"
+                    : <a href={state.searchUrls.wingamestore} target="_blank">
+                        WinGameStore
+                    </a>
+                }
+            </h3>
             {state.isLoading
                 ? (<LoadingComponent />)
                 : state.results.wingamestore.length === 0
@@ -89,13 +107,61 @@ export const WinGameStore = ({ state }) => {
 export const GamersGate = ({ state }) => {
     return (
         <section className="website-section gamersgate">
-            <h3 className="website-title">Gamersgate</h3>
+            <h3 className="website-title">
+                {state.searchUrls.gamersgate === '' ? "GamersGate"
+                    : <a href={state.searchUrls.gamersgate} target="_blank">
+                        GamersGate
+                    </a>
+                }
+            </h3>
             {state.isLoading
                 ? (<LoadingComponent />)
                 : state.results.gamersgate.length === 0
                     ? (NoResults())
                     : (
                         GameMapper(state, 'gamersgate')
+                    )}
+        </section>
+    )
+}
+
+export const TwoGame = ({ state }) => {
+    return (
+        <section className="website-section twogame">
+            <h3 className="website-title">
+                {state.searchUrls.twogame === '' ? "2Game"
+                    : <a href={state.searchUrls.twogame} target="_blank">
+                        2Game
+                    </a>
+                }
+            </h3>
+            {state.isLoading
+                ? (<LoadingComponent />)
+                : state.results.twogame.length === 0
+                    ? (NoResults())
+                    : (
+                        GameMapper(state, 'twogame')
+                    )}
+        </section>
+    )
+}
+
+export const GamesPlanet = ({ state }) => {
+    return (
+        <section className="website-section gamesplanet">
+            <h3 className="website-title">
+                {state.searchUrls.gamesplanet === '' ? "GamesPlanet"
+                    : <a href={state.searchUrls.gamesplanet} target="_blank">
+                        GamesPlanet
+                    </a>
+                }
+            </h3>
+            {state.isLoading
+                ? (<LoadingComponent />)
+                : state.results.gamesplanet.length === 0
+                    ? (NoResults())
+                    : (
+                        GameMapper(state, 'gamesplanet')
                     )}
         </section>
     )

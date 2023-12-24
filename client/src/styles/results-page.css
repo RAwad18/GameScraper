@@ -21,6 +21,8 @@
     min-height: 90vh;
     display: flex;
     justify-content: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .results {
@@ -30,8 +32,26 @@
     flex-grow: 1;
 }
 
+.results-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+@media (min-width: 890px) {
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* grid-auto-rows: 258px; */
+    }
+}
+
 @media (min-width: 1024px) {
     .results {
-        max-width: 1024px;
+        max-width: 1279px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .results-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
