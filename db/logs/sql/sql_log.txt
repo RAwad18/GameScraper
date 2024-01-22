@@ -1,124 +1,197 @@
-[Thu, 21 Dec 2023 22:28:02 GMT] ---- CONNECTING TO THE DATABASE...
+[Thu, 11 Jan 2024 20:04:16 GMT] ---- CONNECTING TO THE DATABASE...
 
-	[Thu, 21 Dec 2023 22:28:02 GMT] ---- STEAM TRANSACTION START
+	[Thu, 11 Jan 2024 20:04:16 GMT] ---- STEAM TRANSACTION START
 
-		Executing (1ad4f5b8-1fd5-478b-9bf7-eb7bd042b8ea): START TRANSACTION;
-		Executing (1ad4f5b8-1fd5-478b-9bf7-eb7bd042b8ea): LOAD DATA LOCAL INFILE './data/steam.csv'
+		Executing (3530e03f-c86f-45f2-a233-bdee3994e2b0): START TRANSACTION;
+		Executing (3530e03f-c86f-45f2-a233-bdee3994e2b0): LOAD DATA LOCAL INFILE './data/steam.csv'
             INTO TABLE steam_temp
             FIELDS TERMINATED BY '	' ENCLOSED BY ''
             LINES TERMINATED BY '
 '
             IGNORE 1 LINES
             (title,price,image,link)
-		Executing (1ad4f5b8-1fd5-478b-9bf7-eb7bd042b8ea): DELETE FROM steam_old
-		Executing (1ad4f5b8-1fd5-478b-9bf7-eb7bd042b8ea): INSERT INTO steam_old SELECT * FROM steam_current
-		Executing (1ad4f5b8-1fd5-478b-9bf7-eb7bd042b8ea): DELETE FROM steam_current
-		Executing (1ad4f5b8-1fd5-478b-9bf7-eb7bd042b8ea): INSERT INTO steam_current SELECT * FROM steam_temp
-		Executing (1ad4f5b8-1fd5-478b-9bf7-eb7bd042b8ea): DELETE FROM steam_temp
-		Executing (1ad4f5b8-1fd5-478b-9bf7-eb7bd042b8ea): COMMIT;
+		Executing (3530e03f-c86f-45f2-a233-bdee3994e2b0): DELETE FROM steam_old
+		Executing (3530e03f-c86f-45f2-a233-bdee3994e2b0): INSERT INTO steam_old SELECT * FROM steam_current
+		Executing (3530e03f-c86f-45f2-a233-bdee3994e2b0): DELETE FROM steam_current
+		Executing (3530e03f-c86f-45f2-a233-bdee3994e2b0): INSERT INTO steam_current SELECT * FROM steam_temp
+		Executing (3530e03f-c86f-45f2-a233-bdee3994e2b0): DELETE FROM steam_temp
+		Executing (3530e03f-c86f-45f2-a233-bdee3994e2b0): COMMIT;
 
-		[Thu, 21 Dec 2023 22:29:01 GMT] ---- STEAM TRANSACTION SUCCESS: 91734 ROWS AFFECTED.
-	[Thu, 21 Dec 2023 22:29:01 GMT] ---- STEAM TRANSACTION END
+		[Thu, 11 Jan 2024 20:05:01 GMT] ---- STEAM TRANSACTION SUCCESS: 92554 ROWS AFFECTED.
+	[Thu, 11 Jan 2024 20:05:01 GMT] ---- STEAM TRANSACTION END
 
-	[Thu, 21 Dec 2023 22:29:01 GMT] ---- GAMEBILLET TRANSACTION START
+	[Thu, 11 Jan 2024 20:05:07 GMT] ---- GAMEBILLET TRANSACTION START
 
-		Executing (6ed31007-dbed-4236-a60f-f02c554744e0): START TRANSACTION;
-		Executing (6ed31007-dbed-4236-a60f-f02c554744e0): LOAD DATA LOCAL INFILE './data/gamebillet.csv'
+		Executing (6b4202a3-02e9-461d-879e-19391849d833): START TRANSACTION;
+		Executing (6b4202a3-02e9-461d-879e-19391849d833): LOAD DATA LOCAL INFILE './data/gamebillet.csv'
             INTO TABLE gamebillet_temp
             FIELDS TERMINATED BY '	' ENCLOSED BY ''
             LINES TERMINATED BY '
 '
             IGNORE 1 LINES
             (title,price,image,link)
-		Executing (6ed31007-dbed-4236-a60f-f02c554744e0): DELETE FROM gamebillet_old
-		Executing (6ed31007-dbed-4236-a60f-f02c554744e0): INSERT INTO gamebillet_old SELECT * FROM gamebillet_current
-		Executing (6ed31007-dbed-4236-a60f-f02c554744e0): DELETE FROM gamebillet_current
-		Executing (6ed31007-dbed-4236-a60f-f02c554744e0): INSERT INTO gamebillet_current SELECT * FROM gamebillet_temp
-		Executing (6ed31007-dbed-4236-a60f-f02c554744e0): DELETE FROM gamebillet_temp
-		Executing (6ed31007-dbed-4236-a60f-f02c554744e0): COMMIT;
+		Executing (6b4202a3-02e9-461d-879e-19391849d833): DELETE FROM gamebillet_old
+		Executing (6b4202a3-02e9-461d-879e-19391849d833): INSERT INTO gamebillet_old SELECT * FROM gamebillet_current
+		Executing (6b4202a3-02e9-461d-879e-19391849d833): DELETE FROM gamebillet_current
+		Executing (6b4202a3-02e9-461d-879e-19391849d833): INSERT INTO gamebillet_current SELECT * FROM gamebillet_temp
+		Executing (6b4202a3-02e9-461d-879e-19391849d833): DELETE FROM gamebillet_temp
+		Executing (6b4202a3-02e9-461d-879e-19391849d833): COMMIT;
 
-		[Thu, 21 Dec 2023 22:29:05 GMT] ---- GAMEBILLET TRANSACTION SUCCESS: 6460 ROWS AFFECTED.
-	[Thu, 21 Dec 2023 22:29:05 GMT] ---- GAMEBILLET TRANSACTION END
+		[Thu, 11 Jan 2024 20:05:20 GMT] ---- GAMEBILLET TRANSACTION SUCCESS: 6363 ROWS AFFECTED.
+	[Thu, 11 Jan 2024 20:05:20 GMT] ---- GAMEBILLET TRANSACTION END
 
-	[Thu, 21 Dec 2023 22:29:05 GMT] ---- GAMESPLANET TRANSACTION START
+	[Thu, 11 Jan 2024 20:05:20 GMT] ---- GAMESPLANET TRANSACTION START
 
-		Executing (38bdc5a5-c26c-4f3b-94c2-46dec2d99221): START TRANSACTION;
-		Executing (38bdc5a5-c26c-4f3b-94c2-46dec2d99221): LOAD DATA LOCAL INFILE './data/gamesplanet.csv'
+		Executing (ae63c055-4e67-4cd9-bd61-c95ec7296b11): START TRANSACTION;
+		Executing (ae63c055-4e67-4cd9-bd61-c95ec7296b11): LOAD DATA LOCAL INFILE './data/gamesplanet.csv'
             INTO TABLE gamesplanet_temp
             FIELDS TERMINATED BY '	' ENCLOSED BY ''
             LINES TERMINATED BY '
 '
             IGNORE 1 LINES
             (title,price,image,link)
-		Executing (38bdc5a5-c26c-4f3b-94c2-46dec2d99221): DELETE FROM gamesplanet_old
-		Executing (38bdc5a5-c26c-4f3b-94c2-46dec2d99221): INSERT INTO gamesplanet_old SELECT * FROM gamesplanet_current
-		Executing (38bdc5a5-c26c-4f3b-94c2-46dec2d99221): DELETE FROM gamesplanet_current
-		Executing (38bdc5a5-c26c-4f3b-94c2-46dec2d99221): INSERT INTO gamesplanet_current SELECT * FROM gamesplanet_temp
-		Executing (38bdc5a5-c26c-4f3b-94c2-46dec2d99221): DELETE FROM gamesplanet_temp
-		Executing (38bdc5a5-c26c-4f3b-94c2-46dec2d99221): COMMIT;
+		Executing (ae63c055-4e67-4cd9-bd61-c95ec7296b11): DELETE FROM gamesplanet_old
+		Executing (ae63c055-4e67-4cd9-bd61-c95ec7296b11): INSERT INTO gamesplanet_old SELECT * FROM gamesplanet_current
+		Executing (ae63c055-4e67-4cd9-bd61-c95ec7296b11): DELETE FROM gamesplanet_current
+		Executing (ae63c055-4e67-4cd9-bd61-c95ec7296b11): INSERT INTO gamesplanet_current SELECT * FROM gamesplanet_temp
+		Executing (ae63c055-4e67-4cd9-bd61-c95ec7296b11): DELETE FROM gamesplanet_temp
+		Executing (ae63c055-4e67-4cd9-bd61-c95ec7296b11): COMMIT;
 
-		[Thu, 21 Dec 2023 22:29:07 GMT] ---- GAMESPLANET TRANSACTION SUCCESS: 6459 ROWS AFFECTED.
-	[Thu, 21 Dec 2023 22:29:07 GMT] ---- GAMESPLANET TRANSACTION END
+		[Thu, 11 Jan 2024 20:05:32 GMT] ---- GAMESPLANET TRANSACTION SUCCESS: 6461 ROWS AFFECTED.
+	[Thu, 11 Jan 2024 20:05:32 GMT] ---- GAMESPLANET TRANSACTION END
 
-	[Thu, 21 Dec 2023 22:29:07 GMT] ---- GAMERSGATE TRANSACTION START
+	[Thu, 11 Jan 2024 20:05:32 GMT] ---- GAMERSGATE TRANSACTION START
 
-		Executing (fdc9b6de-2387-4229-aeac-4e582d3dd03e): START TRANSACTION;
-		Executing (fdc9b6de-2387-4229-aeac-4e582d3dd03e): LOAD DATA LOCAL INFILE './data/gamersgate.csv'
+		Executing (937b1fb8-5c2c-4e24-8653-607827631de1): START TRANSACTION;
+		Executing (937b1fb8-5c2c-4e24-8653-607827631de1): LOAD DATA LOCAL INFILE './data/gamersgate.csv'
             INTO TABLE gamersgate_temp
             FIELDS TERMINATED BY '	' ENCLOSED BY ''
             LINES TERMINATED BY '
 '
             IGNORE 1 LINES
             (title,price,image,link)
-		Executing (fdc9b6de-2387-4229-aeac-4e582d3dd03e): DELETE FROM gamersgate_old
-		Executing (fdc9b6de-2387-4229-aeac-4e582d3dd03e): INSERT INTO gamersgate_old SELECT * FROM gamersgate_current
-		Executing (fdc9b6de-2387-4229-aeac-4e582d3dd03e): DELETE FROM gamersgate_current
-		Executing (fdc9b6de-2387-4229-aeac-4e582d3dd03e): INSERT INTO gamersgate_current SELECT * FROM gamersgate_temp
-		Executing (fdc9b6de-2387-4229-aeac-4e582d3dd03e): DELETE FROM gamersgate_temp
-		Executing (fdc9b6de-2387-4229-aeac-4e582d3dd03e): COMMIT;
+		Executing (937b1fb8-5c2c-4e24-8653-607827631de1): DELETE FROM gamersgate_old
+		Executing (937b1fb8-5c2c-4e24-8653-607827631de1): INSERT INTO gamersgate_old SELECT * FROM gamersgate_current
+		Executing (937b1fb8-5c2c-4e24-8653-607827631de1): DELETE FROM gamersgate_current
+		Executing (937b1fb8-5c2c-4e24-8653-607827631de1): INSERT INTO gamersgate_current SELECT * FROM gamersgate_temp
+		Executing (937b1fb8-5c2c-4e24-8653-607827631de1): DELETE FROM gamersgate_temp
+		Executing (937b1fb8-5c2c-4e24-8653-607827631de1): COMMIT;
 
-		[Thu, 21 Dec 2023 22:29:11 GMT] ---- GAMERSGATE TRANSACTION SUCCESS: 8634 ROWS AFFECTED.
-	[Thu, 21 Dec 2023 22:29:11 GMT] ---- GAMERSGATE TRANSACTION END
+		[Thu, 11 Jan 2024 20:05:46 GMT] ---- GAMERSGATE TRANSACTION SUCCESS: 8374 ROWS AFFECTED.
+	[Thu, 11 Jan 2024 20:05:46 GMT] ---- GAMERSGATE TRANSACTION END
 
-	[Thu, 21 Dec 2023 22:29:11 GMT] ---- 2GAME TRANSACTION START
+	[Thu, 11 Jan 2024 20:05:46 GMT] ---- TWOGAME TRANSACTION START
 
-		Executing (9d5c66fc-989e-4f4f-a5d6-2431308a6571): START TRANSACTION;
-		Executing (9d5c66fc-989e-4f4f-a5d6-2431308a6571): LOAD DATA LOCAL INFILE './data/2game.csv'
-            INTO TABLE 2game_temp
+		Executing (634650b3-9ebc-4287-9039-7580a790b82f): START TRANSACTION;
+		Executing (634650b3-9ebc-4287-9039-7580a790b82f): LOAD DATA LOCAL INFILE './data/twogame.csv'
+            INTO TABLE twogame_temp
             FIELDS TERMINATED BY '	' ENCLOSED BY ''
             LINES TERMINATED BY '
 '
             IGNORE 1 LINES
             (title,price,image,link)
-		Executing (9d5c66fc-989e-4f4f-a5d6-2431308a6571): DELETE FROM 2game_old
-		Executing (9d5c66fc-989e-4f4f-a5d6-2431308a6571): INSERT INTO 2game_old SELECT * FROM 2game_current
-		Executing (9d5c66fc-989e-4f4f-a5d6-2431308a6571): DELETE FROM 2game_current
-		Executing (9d5c66fc-989e-4f4f-a5d6-2431308a6571): INSERT INTO 2game_current SELECT * FROM 2game_temp
-		Executing (9d5c66fc-989e-4f4f-a5d6-2431308a6571): DELETE FROM 2game_temp
-		Executing (9d5c66fc-989e-4f4f-a5d6-2431308a6571): COMMIT;
+		Executing (634650b3-9ebc-4287-9039-7580a790b82f): ROLLBACK;
 
-		[Thu, 21 Dec 2023 22:29:18 GMT] ---- 2GAME TRANSACTION SUCCESS: 3397 ROWS AFFECTED.
-	[Thu, 21 Dec 2023 22:29:18 GMT] ---- 2GAME TRANSACTION END
+		[Thu, 11 Jan 2024 20:05:46 GMT] ---- TWOGAME TRANSACTION FAILURE: ROLLBACK CHANGES.
+		Table 'gamescraperdb.twogame_temp' doesn't exist
 
-	[Thu, 21 Dec 2023 22:29:18 GMT] ---- WINGAMESTORE TRANSACTION START
+	[Thu, 11 Jan 2024 20:05:46 GMT] ---- TWOGAME TRANSACTION END
 
-		Executing (49b8faf2-a865-4b23-a9ed-38d4c332ba59): START TRANSACTION;
-		Executing (49b8faf2-a865-4b23-a9ed-38d4c332ba59): LOAD DATA LOCAL INFILE './data/wingamestore.csv'
+
+
+	FAILED TO RESET AUTO_INCREMENT TO 1 ON TWOGAME_TEMP!
+
+	[Thu, 11 Jan 2024 20:05:46 GMT] ---- WINGAMESTORE TRANSACTION START
+
+		Executing (4675c843-813b-4774-b1c4-b6384b7ae1c5): START TRANSACTION;
+		Executing (4675c843-813b-4774-b1c4-b6384b7ae1c5): LOAD DATA LOCAL INFILE './data/wingamestore.csv'
             INTO TABLE wingamestore_temp
             FIELDS TERMINATED BY '	' ENCLOSED BY ''
             LINES TERMINATED BY '
 '
             IGNORE 1 LINES
             (title,price,image,link)
-		Executing (49b8faf2-a865-4b23-a9ed-38d4c332ba59): DELETE FROM wingamestore_old
-		Executing (49b8faf2-a865-4b23-a9ed-38d4c332ba59): INSERT INTO wingamestore_old SELECT * FROM wingamestore_current
-		Executing (49b8faf2-a865-4b23-a9ed-38d4c332ba59): DELETE FROM wingamestore_current
-		Executing (49b8faf2-a865-4b23-a9ed-38d4c332ba59): INSERT INTO wingamestore_current SELECT * FROM wingamestore_temp
-		Executing (49b8faf2-a865-4b23-a9ed-38d4c332ba59): DELETE FROM wingamestore_temp
-		Executing (49b8faf2-a865-4b23-a9ed-38d4c332ba59): COMMIT;
+		Executing (4675c843-813b-4774-b1c4-b6384b7ae1c5): DELETE FROM wingamestore_old
+		Executing (4675c843-813b-4774-b1c4-b6384b7ae1c5): INSERT INTO wingamestore_old SELECT * FROM wingamestore_current
+		Executing (4675c843-813b-4774-b1c4-b6384b7ae1c5): DELETE FROM wingamestore_current
+		Executing (4675c843-813b-4774-b1c4-b6384b7ae1c5): INSERT INTO wingamestore_current SELECT * FROM wingamestore_temp
+		Executing (4675c843-813b-4774-b1c4-b6384b7ae1c5): DELETE FROM wingamestore_temp
+		Executing (4675c843-813b-4774-b1c4-b6384b7ae1c5): COMMIT;
 
-		[Thu, 21 Dec 2023 22:29:28 GMT] ---- WINGAMESTORE TRANSACTION SUCCESS: 5782 ROWS AFFECTED.
-	[Thu, 21 Dec 2023 22:29:28 GMT] ---- WINGAMESTORE TRANSACTION END
+		[Thu, 11 Jan 2024 20:05:51 GMT] ---- WINGAMESTORE TRANSACTION SUCCESS: 5666 ROWS AFFECTED.
+	[Thu, 11 Jan 2024 20:05:51 GMT] ---- WINGAMESTORE TRANSACTION END
 
-[Thu, 21 Dec 2023 22:29:28 GMT] ---- DISCONNECTED: Connection to the DB has been closed.
+[Thu, 11 Jan 2024 20:05:53 GMT] ---- DISCONNECTED: Connection to the DB has been closed.
+
+[Thu, 11 Jan 2024 20:22:44 GMT] ---- CONNECTING TO THE DATABASE...
+
+	[Thu, 11 Jan 2024 20:22:44 GMT] ---- TWOGAME TRANSACTION START
+
+		Executing (afff38fc-abe5-46ea-a27b-9c9f51846565): START TRANSACTION;
+		Executing (afff38fc-abe5-46ea-a27b-9c9f51846565): LOAD DATA LOCAL INFILE './data/twogame.csv'
+            INTO TABLE twogame_temp
+            FIELDS TERMINATED BY '	' ENCLOSED BY ''
+            LINES TERMINATED BY '
+'
+            IGNORE 1 LINES
+            (title,price,image,link)
+		Executing (afff38fc-abe5-46ea-a27b-9c9f51846565): DELETE FROM twogame_old
+		Executing (afff38fc-abe5-46ea-a27b-9c9f51846565): INSERT INTO twogame_old SELECT * FROM twogame_current
+		Executing (afff38fc-abe5-46ea-a27b-9c9f51846565): DELETE FROM twogame_current
+		Executing (afff38fc-abe5-46ea-a27b-9c9f51846565): INSERT INTO twogame_current SELECT * FROM twogame_temp
+		Executing (afff38fc-abe5-46ea-a27b-9c9f51846565): DELETE FROM twogame_temp
+		Executing (afff38fc-abe5-46ea-a27b-9c9f51846565): COMMIT;
+
+		[Thu, 11 Jan 2024 20:22:45 GMT] ---- TWOGAME TRANSACTION SUCCESS: 4064 ROWS AFFECTED.
+	[Thu, 11 Jan 2024 20:22:45 GMT] ---- TWOGAME TRANSACTION END
+
+[Thu, 11 Jan 2024 20:22:45 GMT] ---- DISCONNECTED: Connection to the DB has been closed.
+
+[Thu, 11 Jan 2024 20:22:52 GMT] ---- CONNECTING TO THE DATABASE...
+
+	[Thu, 11 Jan 2024 20:22:52 GMT] ---- TWOGAME TRANSACTION START
+
+		Executing (8db4fecb-fe36-48bb-a930-bf7a033319c5): START TRANSACTION;
+		Executing (8db4fecb-fe36-48bb-a930-bf7a033319c5): LOAD DATA LOCAL INFILE './data/twogame.csv'
+            INTO TABLE twogame_temp
+            FIELDS TERMINATED BY '	' ENCLOSED BY ''
+            LINES TERMINATED BY '
+'
+            IGNORE 1 LINES
+            (title,price,image,link)
+		Executing (8db4fecb-fe36-48bb-a930-bf7a033319c5): DELETE FROM twogame_old
+		Executing (8db4fecb-fe36-48bb-a930-bf7a033319c5): INSERT INTO twogame_old SELECT * FROM twogame_current
+		Executing (8db4fecb-fe36-48bb-a930-bf7a033319c5): DELETE FROM twogame_current
+		Executing (8db4fecb-fe36-48bb-a930-bf7a033319c5): INSERT INTO twogame_current SELECT * FROM twogame_temp
+		Executing (8db4fecb-fe36-48bb-a930-bf7a033319c5): DELETE FROM twogame_temp
+		Executing (8db4fecb-fe36-48bb-a930-bf7a033319c5): COMMIT;
+
+		[Thu, 11 Jan 2024 20:22:52 GMT] ---- TWOGAME TRANSACTION SUCCESS: 4064 ROWS AFFECTED.
+	[Thu, 11 Jan 2024 20:22:52 GMT] ---- TWOGAME TRANSACTION END
+
+[Thu, 11 Jan 2024 20:22:54 GMT] ---- DISCONNECTED: Connection to the DB has been closed.
+
+[Fri, 12 Jan 2024 21:06:18 GMT] ---- CONNECTING TO THE DATABASE...
+
+	[Fri, 12 Jan 2024 21:06:19 GMT] ---- STEAM TRANSACTION START
+
+		Executing (78f3007c-48fa-4446-8739-69bf1f88bcc1): START TRANSACTION;
+		Executing (78f3007c-48fa-4446-8739-69bf1f88bcc1): LOAD DATA LOCAL INFILE './data/steam.csv'
+            INTO TABLE steam_temp
+            FIELDS TERMINATED BY '	' ENCLOSED BY ''
+            LINES TERMINATED BY '
+'
+            IGNORE 1 LINES
+            (title,price,image,link)
+		Executing (78f3007c-48fa-4446-8739-69bf1f88bcc1): DELETE FROM steam_old
+		Executing (78f3007c-48fa-4446-8739-69bf1f88bcc1): INSERT INTO steam_old SELECT * FROM steam_current
+		Executing (78f3007c-48fa-4446-8739-69bf1f88bcc1): DELETE FROM steam_current
+		Executing (78f3007c-48fa-4446-8739-69bf1f88bcc1): INSERT INTO steam_current SELECT * FROM steam_temp
+		Executing (78f3007c-48fa-4446-8739-69bf1f88bcc1): DELETE FROM steam_temp
+		Executing (78f3007c-48fa-4446-8739-69bf1f88bcc1): COMMIT;
+
+		[Fri, 12 Jan 2024 21:07:00 GMT] ---- STEAM TRANSACTION SUCCESS: 92689 ROWS AFFECTED.
+	[Fri, 12 Jan 2024 21:07:00 GMT] ---- STEAM TRANSACTION END
+
+[Fri, 12 Jan 2024 21:07:05 GMT] ---- DISCONNECTED: Connection to the DB has been closed.
 

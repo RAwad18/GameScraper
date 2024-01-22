@@ -19,10 +19,13 @@ if (process.env.NODE_ENV !== 'production') {
 }
 // END OF IMPORTS
 
+console.log("Starting program...waiting for the designated time.")
 // Run this program everyday at 1:15pm
-schedule.scheduleJob('15 13 * * *',
+// Change it back to: '15 13 * * *'
+schedule.scheduleJob('21 14 * * *',
     async () => {
 
+        
         // All the data needed in order to connect to our DB
         const sequelize = new Sequelize(
             process.env.DATABASE_NAME,

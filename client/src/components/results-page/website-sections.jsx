@@ -1,4 +1,18 @@
+import { Tooltip } from 'react-tooltip'
 import LoadingComponent from "./loading"
+import { useState } from 'react'
+
+// Function that tracks mouse movement, set mouse to be 'inactive' after 50ms
+function setMouseMove(e, setStateFn) {
+    e.preventDefault();
+    setStateFn(true);
+
+    let timeout;
+    (() => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => setStateFn(false), 1000);
+    })();
+}
 
 // Function that loads "No Results"
 function NoResults() {
@@ -11,19 +25,21 @@ function NoResults() {
 
 // Function that loads the data from payload we recieved
 function GameMapper(state, website) {
+
     return (
 
-        <div className="website-games">
-            {state.results[website].map((game, i) => (
-                <a href={game.link} target="_blank" key={`game${i}`} className="game-container">
-                    <img className="game-image" src={game.image} alt="PIC NO WORKY" />
+        <div className="website-games" >
+            {state.results[website].map((game) => (
+                <a href={game.Link} target="_blank" key={game.Id} className="game-container" data-tooltip-id='my-tooltip' data-tooltip-content={game.Title} data-tooltip-place="top">
+                    <Tooltip id="my-tooltip" style={{backgroundColor: 'var(--clr-sky50)', color: 'var(--clr-slate950)'}} delayShow={50}/>
+                    <img className="game-image" src={game.Image} alt="PIC NO WORKY" />
 
                     <span className="game-title">
-                        {game.title}
+                        {game.Title}
                     </span>
 
                     <span className="game-price">
-                        {game.price || <div className="no-price">
+                        {game.Price !== 'NULL' ? game.Price : <div className="no-price">
                             -
                         </div>}
                     </span>
@@ -40,101 +56,11 @@ function GameMapper(state, website) {
 
 // All the code for each "section" or website 
 // Checks if loading...displays loading icon if true
-// Checks if the array for the website 
-export const Steam = ({ state }) => {
-    return (
-        <section className="website-section steam">
-            <h3 className="website-title">
-                {state.searchUrls.steam === '' ? "Steam"
-                    : <a href={state.searchUrls.steam} target="_blank">
-                        Steam
-                    </a>
-                }
-            </h3>
-            {state.isLoading
-                ? (<LoadingComponent />)
-                : state.results.steam.length === 0
-                    ? (NoResults())
-                    : (
-                        GameMapper(state, 'steam')
-                    )}
-        </section>
-    )
-}
-
-export const GameBillet = ({ state }) => {
-    return (
-        <section className="website-section gamebillet">
-            <h3 className="website-title">
-                {state.searchUrls.gamebillet === '' ? "GameBillet"
-                    : <a href={state.searchUrls.gamebillet} target="_blank">
-                        GameBillet
-                    </a>
-                }
-            </h3>
-            {state.isLoading
-                ? (<LoadingComponent />)
-                : state.results.gamebillet.length === 0
-                    ? (NoResults())
-                    : (
-                        GameMapper(state, 'gamebillet')
-                    )}
-        </section>
-    )
-}
-
-export const WinGameStore = ({ state }) => {
-    return (
-        <section className="website-section wingamestore">
-            <h3 className="website-title">
-                {state.searchUrls.wingamestore === '' ? "WinGameStore"
-                    : <a href={state.searchUrls.wingamestore} target="_blank">
-                        WinGameStore
-                    </a>
-                }
-            </h3>
-            {state.isLoading
-                ? (<LoadingComponent />)
-                : state.results.wingamestore.length === 0
-                    ? (NoResults())
-                    : (
-                        GameMapper(state, 'wingamestore')
-                    )}
-        </section>
-    )
-}
-
-export const GamersGate = ({ state }) => {
-    return (
-        <section className="website-section gamersgate">
-            <h3 className="website-title">
-                {state.searchUrls.gamersgate === '' ? "GamersGate"
-                    : <a href={state.searchUrls.gamersgate} target="_blank">
-                        GamersGate
-                    </a>
-                }
-            </h3>
-            {state.isLoading
-                ? (<LoadingComponent />)
-                : state.results.gamersgate.length === 0
-                    ? (NoResults())
-                    : (
-                        GameMapper(state, 'gamersgate')
-                    )}
-        </section>
-    )
-}
-
+// Checks if the array for the website
 export const TwoGame = ({ state }) => {
     return (
         <section className="website-section twogame">
-            <h3 className="website-title">
-                {state.searchUrls.twogame === '' ? "2Game"
-                    : <a href={state.searchUrls.twogame} target="_blank">
-                        2Game
-                    </a>
-                }
-            </h3>
+            <h3 className="website-title">2Game</h3>
             {state.isLoading
                 ? (<LoadingComponent />)
                 : state.results.twogame.length === 0
@@ -146,22 +72,76 @@ export const TwoGame = ({ state }) => {
     )
 }
 
+export const GameBillet = ({ state }) => {
+    return (
+        <section className="website-section gamebillet">
+            <h3 className="website-title">GameBillet</h3>
+            {state.isLoading
+                ? (<LoadingComponent />)
+                : state.results.gamebillet.length === 0
+                    ? (NoResults())
+                    : (
+                        GameMapper(state, 'gamebillet')
+                    )}
+        </section>
+    )
+}
+
+export const GamersGate = ({ state }) => {
+    return (
+        <section className="website-section gamersgate">
+            <h3 className="website-title">GamersGate</h3>
+            {state.isLoading
+                ? (<LoadingComponent />)
+                : state.results.gamersgate.length === 0
+                    ? (NoResults())
+                    : (
+                        GameMapper(state, 'gamersgate')
+                    )}
+        </section>
+    )
+}
+
 export const GamesPlanet = ({ state }) => {
     return (
         <section className="website-section gamesplanet">
-            <h3 className="website-title">
-                {state.searchUrls.gamesplanet === '' ? "GamesPlanet"
-                    : <a href={state.searchUrls.gamesplanet} target="_blank">
-                        GamesPlanet
-                    </a>
-                }
-            </h3>
+            <h3 className="website-title">GamesPlanet</h3>
             {state.isLoading
                 ? (<LoadingComponent />)
                 : state.results.gamesplanet.length === 0
                     ? (NoResults())
                     : (
                         GameMapper(state, 'gamesplanet')
+                    )}
+        </section>
+    )
+}
+
+export const Steam = ({ state }) => {
+    return (
+        <section className="website-section steam">
+            <h3 className="website-title">Steam</h3>
+            {state.isLoading
+                ? (<LoadingComponent />)
+                : state.results.steam.length === 0
+                    ? (NoResults())
+                    : (
+                        GameMapper(state, 'steam')
+                    )}
+        </section>
+    )
+}
+
+export const WinGameStore = ({ state }) => {
+    return (
+        <section className="website-section wingamestore">
+            <h3 className="website-title">WinGameStore</h3>
+            {state.isLoading
+                ? (<LoadingComponent />)
+                : state.results.wingamestore.length === 0
+                    ? (NoResults())
+                    : (
+                        GameMapper(state, 'wingamestore')
                     )}
         </section>
     )

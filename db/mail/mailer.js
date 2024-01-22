@@ -9,7 +9,7 @@ export async function MailScraper(message) {
 
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
-        port: 465,
+        port: process.env.MAILER_PORT,
         secure: true,
         auth: {
             type: "OAuth2",

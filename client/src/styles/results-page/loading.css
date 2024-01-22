@@ -1,7 +1,11 @@
 .loader-container {
     /* background-color: red; */
     /* padding-left: 0.5rem; */
-    align-self: center;
+    /* align-self: center; */
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .loader {

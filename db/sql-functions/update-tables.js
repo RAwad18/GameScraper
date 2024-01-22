@@ -59,6 +59,13 @@ async function UpdateTables(sequelize, site) {
 
         SQL_Logger(`\n\t\t[${new Date().toUTCString()}] ---- ${site.toUpperCase()} TRANSACTION FAILURE: ROLLBACK CHANGES.\n\t\t${error.message}\n`, false)
         SQL_Logger(`\t[${new Date().toUTCString()}] ---- ${site.toUpperCase()} TRANSACTION END\n\n`, false)
+
+    } finally {
+        try {
+            await sequelize.query(`ALTER TABLE ${site}_temp AUTO_INCREMENT = 1`)
+        } catch (error) {
+            SQL_Logger(`\n\tFAILED TO RESET AUTO_INCREMENT TO 1 ON ${site.toUpperCase()}_TEMP!\n`, false);
+        }
     }
 
 }

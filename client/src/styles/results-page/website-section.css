@@ -34,6 +34,11 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.25rem 0.5rem;
+    
+
+    background-color: var(--clr-slate800);
+    /* border-left: solid 1px var(--clr-slate950);
+    border-right: solid 1px var(--clr-slate950); */
 
     /* transition: all 0.25s; */
 }
@@ -44,18 +49,22 @@
 }
 
 .game-image {
-    /* inline-size: 100%; */
-    /* aspect-ratio: 16 / 9; */
-    width: 100px;
+    inline-size: 100%;
+    aspect-ratio: 21 / 9;
+    width: 80px;
     /* height: 45px; */
     /* object-fit: cover; */
 }
 
 .game-title {
     flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .game-price {
+    margin-left: 15px;
     font-size: 0.85em;
     align-self: center;
 }
@@ -65,6 +74,8 @@
     margin-top: calc(-1 * 2rem);
     padding: 0.5rem;
     font-size: 1.25rem;
+
+    height: 200px;
 
     flex-grow: 1;
     display: flex;
@@ -76,6 +87,10 @@
     width: 45px;
     text-align: center;
     font-size: 1.5em;
+}
+
+#mytooltip {
+    color: red;
 }
 
 

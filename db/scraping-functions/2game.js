@@ -4,7 +4,7 @@ import { Scrape_Logger } from '../logs/logger_functions.js';
 
 async function TwoGameScraper() {
 
-    const site = "2GAME";
+    const site = "TWOGAME";
 
     // selectors for scraping
     const selectorAll = 'li.product-card';
@@ -22,7 +22,7 @@ async function TwoGameScraper() {
     try {
 
         // Creates/Overwrites the csv --- sets the column field names
-        fs.writeFile("./data/2game.csv", "title\tprice\timage\tlink\n", err => {
+        fs.writeFile("./data/twogame.csv", "title\tprice\timage\tlink\n", err => {
             if (err) {
                 throw err;
             }
@@ -53,7 +53,7 @@ async function TwoGameScraper() {
                     price = price.length > 0 ? `$${price}` : price
                     count++;
 
-                    fs.writeFile("./data/2game.csv", `${gameTitle}\t${price || 'NULL'}\t${image}\t${link}\n`, { flag: 'a+' }, err => {
+                    fs.writeFile("./data/twogame.csv", `${gameTitle}\t${price || 'NULL'}\t${image}\t${link}\n`, { flag: 'a+' }, err => {
                         if (err) {
                             throw err;
                         }

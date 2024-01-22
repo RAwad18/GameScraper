@@ -58,14 +58,12 @@ async function getData(query, state, setStateFn) {
     }
 
     // Once data is retrieved from the server, set the data as the results and confirm that the request is finished
-    let searchUrls;
     let gamesPayload;
     let hasError = false;
     let errorDetails = {};
     try {
         const { data } = await getGames(query);
-        searchUrls = data.searchUrls
-        gamesPayload = data.results;
+        gamesPayload = data;
     } catch (e) {
         // Debugging
         console.error(e)
@@ -76,10 +74,8 @@ async function getData(query, state, setStateFn) {
             message: e.message
         }
 
-        console.log(state.searchUrls)
         console.log(state.results)
 
-        searchUrls = state.searchUrls
         gamesPayload = state.results
     }
     finally {
@@ -87,7 +83,6 @@ async function getData(query, state, setStateFn) {
             hasError: hasError,
             errorDetails: errorDetails,
             isLoading: false,
-            searchUrls: searchUrls,
             results: gamesPayload
         })
     }
@@ -105,25 +100,15 @@ const ResultsPage = () => {
         hasError: false,
         errorDetails: {},
         isLoading: false,
-        searchUrls: {
-            steam: '',
-            gamebillet: '',
-            wingamestore: '',
-            gamersgate: '',
-            twogame: '',
-            gamesplanet: ''
-        },
         results: {
-            steam: [],
-            gamebillet: [],
-            wingamestore: [],
-            gamersgate: [],
             twogame: [],
-            gamesplanet: []
+            gamebillet: [],
+            gamersgate: [],
+            gamesplanet: [],
+            steam: [],
+            wingamestore: [],
         }
     })
-
-    console.log(state.searchUrls)
 
     // Retrieves the 'query' - what we search for
     const query = useLoaderData()
@@ -134,6 +119,8 @@ const ResultsPage = () => {
         setState({ ...state, hasError: false, isLoading: true })
         getData(query, state, setState)
     }, [query])
+
+    // console.log(state.results)
 
     return (
         <>

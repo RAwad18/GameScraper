@@ -19,6 +19,7 @@
     /* padding-bottom: auto; */
     flex-grow: 1;
     min-height: 90vh;
+    /* max-width: 100dvw; */
     display: flex;
     justify-content: center;
     padding-left: 0.5rem;
@@ -35,6 +36,11 @@
 .results-grid {
     display: grid;
     gap: 1rem;
+}
+
+.results-grid section {
+    min-width: 0;
+    min-height: 0;
 }
 
 @media (min-width: 890px) {

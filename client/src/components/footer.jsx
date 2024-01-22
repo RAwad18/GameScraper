@@ -4,23 +4,6 @@ const Footer = () => {
         <nav className="footer-container container">
             <ul className="footer-links">
                 <li>
-                    <span className="footer-name">
-                        <img className="footer-icons" src="/person-icon.svg" alt="Person Icon" />
-                        <span>
-                            Rashed Awadallah
-                        </span>
-                    </span>
-                </li>
-                <li>
-                    <a
-                        target="_blank" href="mailto:someone@example.com">
-                        <img className="footer-icons email-icon" src="/email-icon.svg" alt="Email Icon" />
-                        <span>
-                            awadallah.rashed01@gmail.com
-                        </span>
-                    </a>
-                </li>
-                <li>
                     <a
                         target="_blank" href="https://github.com/RAwad18">
                         <img className="footer-icons github-icon" src="/github-icon.svg" alt="Github Icon" />
