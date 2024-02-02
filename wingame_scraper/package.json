@@ -1,0 +1,21 @@
+{
+  "name": "wingamestore-scraper",
+  "version": "1.0.0",
+  "description": "Scrapes all the games from WinGameStore.com",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv": "^6.3.6",
+    "dotenv": "^16.4.1",
+    "mysql2": "^3.6.5",
+    "puppeteer": "^21.10.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-adblocker": "^2.13.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "sequelize": "^6.35.2"
+  }
+}

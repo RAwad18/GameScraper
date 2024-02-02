@@ -10,19 +10,15 @@ import GameBilletScraper from './scraping-functions/gamebillet.js';
 import GamesPlanetScraper from './scraping-functions/gamesplanet.js';
 import GamersGateScraper from './scraping-functions/gamersgate.js';
 import TwoGameScraper from './scraping-functions/2game.js';
-import WinGameStoreScraper from './scraping-functions/wingamestore.js';
-import { MailScraper, MailSQL } from './mail/mailer.js';
 
 import dotenv from 'dotenv'
-if (process.env.NODE_ENV !== 'production') {
-    dotenv.config()
-}
+
 // END OF IMPORTS
 
 console.log("Starting program...waiting for the designated time.")
 // Run this program everyday at 1:15pm
-// Change it back to: '15 13 * * *'
-schedule.scheduleJob('21 14 * * *',
+// Change it back to: '15 18 * * *' --- need to add +5 because container uses UTC timezone (+5 hours ahead)
+schedule.scheduleJob('15 18 * * *',
     async () => {
 
         
@@ -54,30 +50,38 @@ schedule.scheduleJob('21 14 * * *',
         // If a scraping function fails, then it will return null
         // The array might look something like this...
         // [ steam, gamebillet, null, ... ]
+        const arrayOfScrapers = [SteamScraper, GameBilletScraper, GamesPlanetScraper, GamersGateScraper, TwoGameScraper]
         const arrayOfCSVs = [];
+        let retries = 0;
 
         // Attempt to scrape all the websites
         try {
             Scrape_Logger(`[${new Date().toUTCString()}] ---- STARTING SCRAPING OPERATIONS\n`, false)
-            arrayOfCSVs.push(await SteamScraper())
-            arrayOfCSVs.push(await GameBilletScraper())
-            arrayOfCSVs.push(await GamesPlanetScraper())
-            arrayOfCSVs.push(await GamersGateScraper())
-            arrayOfCSVs.push(await TwoGameScraper())
-            arrayOfCSVs.push(await WinGameStoreScraper())
+
+            for(let i = 0; i < arrayOfScrapers.length; i++){
+                try {
+                    
+                    arrayOfCSVs.push(await arrayOfScrapers[i]())
+                    retries = 0;
+
+                } catch (error) {
+
+                    if(retries > 2)
+                        continue;
+
+                    retries++;
+                    i--;
+                    
+                }
+            }
+
             Scrape_Logger(`[${new Date().toUTCString()}] ---- ENDING OF SCRAPING OPERATIONS\n`, false)
         } catch (error) {
             console.error(error)
             Scrape_Logger(`\n\t${error.stack}`, false)
             Scrape_Logger(`[${new Date().toUTCString()}] ---- FAILURE DURING SCRAPING OPERATIONS\n`, false)
-
-            MailScraper(error.stack)
         }
 
-
-        // Keeps track on whether or not there's an error --- if there is, the log gets mailed to the super smart, super handsome developer that wrote all this beautiful code
-        let scrapeError = false;
-        let sqlError = false;
 
         // Updating the database
         try {
@@ -86,12 +90,11 @@ schedule.scheduleJob('21 14 * * *',
             await SQL_Logger(`[${new Date().toUTCString()}] ---- CONNECTING TO THE DATABASE...\n`, false)
             await sequelize.authenticate();
 
-            //
+
             for (const csv of arrayOfCSVs) {
 
                 // If a value within the arrayOfCSVs is false, log to the scrape_log file which website needs to be rescraped
                 if (csv === null) {
-                    Scrape_Logger(`RETRY: ${csv.toUpperCase()}`, false)
                     scrapeError = true;
                     continue;
                 }
@@ -102,7 +105,6 @@ schedule.scheduleJob('21 14 * * *',
                 try {
                     await UpdateTables(sequelize, csv)
                 } catch (error) {
-                    SQL_Logger(`RETRY: ${csv.toUpperCase()}`, false)
                     sqlError = true;
                     continue;
                 }
@@ -113,15 +115,9 @@ schedule.scheduleJob('21 14 * * *',
             SQL_Logger(`\n\t${error.stack}`, false)
             SQL_Logger(`\n\tCRITICAL FAILURE: ${error.name}: ${error.message.toUpperCase()}`, false)
 
-            MailSQL(error.stack)
-
         } finally {
             await sequelize.close();
             SQL_Logger(`[${new Date().toUTCString()}] ---- DISCONNECTED: Connection to the DB has been closed.\n`, false)
-
-            if (scrapeError) MailScraper("An error has occured! Some scrapers failed --- see the attached log for more details.")
-
-            if (sqlError) MailSQL("An error has occured! Some tables failed to update --- see the attached log for more details.")
 
         }
 

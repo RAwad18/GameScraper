@@ -29,7 +29,7 @@ async function WinGameStoreScraper() {
         });
 
         // Scrapes All Games - Ends when the page requested doesn't match the number of pages available
-        let response = await fetch("https://www.wingamestore.com/genres/");
+        let response = await fetch("https://www.wingamestore.com/genres");
         response = await response.text();
         const $ = cheerio.load(response);
 

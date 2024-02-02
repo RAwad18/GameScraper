@@ -7,6 +7,7 @@ async function TwoGameScraper() {
     const site = "TWOGAME";
 
     // selectors for scraping
+    const correctGrid = 'ul.products-grid';
     const selectorAll = 'li.product-card';
     const title = 'div.product-image-details h2 a';
     const img = 'div.product-image a img';
@@ -42,7 +43,9 @@ async function TwoGameScraper() {
             if (pageNum !== i || pageNum < i)
                 break;
 
-            $('body').find(selectorAll)
+            $('body').find(correctGrid)
+                .last()
+                .find(selectorAll)
                 .each(function () {
 
                     const gameTitle = $(this).find(title).text()

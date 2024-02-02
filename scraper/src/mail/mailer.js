@@ -1,15 +1,11 @@
 import nodemailer from 'nodemailer';
 import dotenv from 'dotenv'
 
-if (process.env.NODE_ENV !== 'production') {
-    dotenv.config()
-}
-
 export async function MailScraper(message) {
 
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
-        port: process.env.MAILER_PORT,
+        port: 465,
         secure: true,
         auth: {
             type: "OAuth2",

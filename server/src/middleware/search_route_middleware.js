@@ -7,7 +7,7 @@ export const checkForQuery = async (req, res, next) => {
     } else if (req.query.q.length <= 0) {
         res.status(403).end();
     } else {
-        const query = (req.query.q).toLowerCase()
+        const query = (req.query.q).replace(/'/g, "").toLowerCase()
         req.query.q = query;
         next();
     }

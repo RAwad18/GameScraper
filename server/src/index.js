@@ -7,9 +7,6 @@ import { fileURLToPath } from 'node:url';
 import * as fs from 'fs';
 
 import dotenv from 'dotenv'
-if (process.env.NODE_ENV !== 'production') {
-    dotenv.config()
-}
 
 import { checkReqType } from './middleware/index_middleware.js';
 import searchRouter from './routes/search_route.js';
@@ -39,12 +36,24 @@ try {
             dialectOptions: {
                 // multipleStatements: false,
                 infileStreamFactory: path => fs.createReadStream(path),
-            }
+            },
+            logging: false,
         },
     );
 
     // Set up middleware for all requests and endpoints
     app.use(helmet())
+    app.use(
+        helmet.contentSecurityPolicy({
+          useDefaults: true,
+          directives: {
+            "script-src": ["'self'", "'unsafe-inline'", "example.com"],
+            "img-src": ["'self'", "https: data:"],
+            "default-src" : ["'self'"],
+            "connect-src" : ["'self'", "http://localhost:8080", "https://localhost:8080", "http://gamescraper.ddns.net:8080/", "https://gamescraper.ddns.net:8080/"]
+          }
+        })
+      )
 
     // Will probably disable this one
     // app.use(cors());
@@ -82,7 +91,7 @@ try {
     // Connect to the DB + Start Server
     await sequelize.authenticate();
     console.log("Successfully Connected to the DB!")
-    app.listen(process.env.SERVER_PORT, () => console.log("Listening on the CHADDY port of 8080 😎"));
+    app.listen(process.env.SERVER_PORT, () => console.log(`Listening on the CHADDY port of ${process.env.SERVER_PORT} 😎`));
 
 } catch (error) {
     console.error(error)

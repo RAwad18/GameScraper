@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  
+  scraper:
+    build: 
+      context: ./scraper
+    restart: no
+    env_file:
+      - scraper.env
+  
+  web-server:
+    build: 
+      context: ./server
+    restart: unless-stopped
+    env_file:
+      - web_server.env
+    
+  haproxy:
+    image: haproxy:2.9.2
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    restart: unless-stopped
+    depends_on:
+      - "web-server"
+    ports:
+      - "80:80"
+      - "443:443"
+
+    

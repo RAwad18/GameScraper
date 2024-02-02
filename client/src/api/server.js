@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const instance = axios.create({
-    baseURL: "http://localhost:8080/api/search",
+    baseURL: "https://gamescraper.ddns.net:8080/api/search",
     timeout: 10000,
 })
 

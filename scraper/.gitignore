@@ -1,0 +1,7 @@
+src/node_modules
+src/test.js
+src/test2.js
+src/logs/scrape
+src/logs/sql
+*.env
+
