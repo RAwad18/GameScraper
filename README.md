@@ -46,7 +46,11 @@
 <br>
 
 <h2>Limitiations</h2>
-<p>GameScraper works best when searching for games by their specific title. What I mean is, searching for "Grand Theft Auto" instead of "GTA".</p>
+<ul>
+  <li>GameScraper works best when searching for games by their specific title. An example would be searching for "Grand Theft Auto V" instead of "GTA 5". </li>
+  <li>Some games don't show up because their title includes a 'special' character. An example would be "Dark Souls 2" or "Dark Souls II" not showing up in the Steam section because Steam has a "TM" character in between (Dark Souls™️ II)</li>
+</ul>
+<p align="center">Please check under 'Upcoming Fixes' to see what's being done to resolve these issues.</p>
 <br>
 
 <h2>Issues</h2>
@@ -54,12 +58,16 @@
   <li>When running on the EC2 instance, the web scraper fails to connect to one of the websites (WinGameStore). Using curl fails as well.</li>
   <li>Some game titles fail to be scraped from the 2game site.</li>
 </ul>
+<p align="center">Please check under 'Upcoming Fixes' to see what's being done to resolve these issues.</p>
 <br>
 
-<h2>Upcoming Fixes</h2>
+<h2>Upcoming Updates and Fixes</h2>
 <ul>
-  <li>Host code that scrapes WinGameStore, as well as updates the database, somewhere else. Finding free hosting for this kind of thing is tough to come by.</li>
+  <li>Rework the web scraping code to remove specific special characters, such as ™️. This would improve the returned search results.</li>
+  <li>Remove the inclusion of DLCs/Addons when scraping Steam. This would remove much of the 'clutter' that can come up.</li>
+  <li>Host code that scrapes WinGameStore, as well as updates the database, somewhere else.</li>
   <li>Switch to scraping with Puppeteer for 2Game to potentially resolve the missing games issue.</li>
+  <li>Add a "highlight" for the cheapest option</li>
 </ul>
 
 
